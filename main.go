@@ -2,11 +2,28 @@ package main
 
 import (
 	"fmt"
+	"os"
+	"strconv"
 )
 
 func main() {
-	var rows int = 5
+	if len(os.Args) <= 1 {
+		fmt.Printf("Need number argument\n")
+		return
+	}
+
+	var (
+		rows int
+		err  error
+	)
+	rows, err = strconv.Atoi(os.Args[1])
 	var k int
+
+	if err != nil {
+		fmt.Printf("Need proper number argument\n")
+		fmt.Println(err.Error())
+		return
+	}
 
 	fmt.Printf("We will be printing pyramid with %d rows\n", rows)
 
