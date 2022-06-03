@@ -8,8 +8,8 @@ import (
 
 func main() {
 	if len(os.Args) <= 1 {
-		fmt.Printf("Need number argument\n")
-		return
+		fmt.Printf("Please input your desired pyramid rows\n")
+		os.Exit(1)
 	}
 
 	var (
@@ -17,28 +17,13 @@ func main() {
 		err  error
 	)
 	rows, err = strconv.Atoi(os.Args[1])
-	var k int
 
 	if err != nil {
 		fmt.Printf("Need proper number argument\n")
 		fmt.Println(err.Error())
-		return
+		os.Exit(2)
 	}
 
 	fmt.Printf("We will be printing pyramid with %d rows\n", rows)
-
-	for i := 1; i <= rows; i++ {
-		k = 0
-		for space := 1; space <= rows-i; space++ {
-			fmt.Print("  ")
-		}
-		for {
-			fmt.Print("* ")
-			k++
-			if k == 2*i-1 {
-				break
-			}
-		}
-		fmt.Println("")
-	}
+	pyramid(rows)
 }
