@@ -6,3 +6,8 @@ Just type this to your terminal.
 go run . <rows>
 ```
 Change ```<rows>``` to the row height value, as high as you want.
+
+You can also build this program to an executable binary.
+```
+go build
+```
